@@ -1,26 +1,30 @@
+
 import random
 def dice():
-	dice_1 = random.randint(1,6)
-	dice_2 = random.randint(1,6)
-	return dice_1 , dice_2
+    return random.randint(1,6), random.randint(1,6)
 def play_dice():
-	print("welcome to crap game ")
-	firstroll = sum(dice())
-	if firstroll in [7,11]:
-		print("you win")
-		return
-	if firstroll in [2,3,12]:
-		print("you lose ")
-		return
-	print(f"the goal number is {firstroll} , keep rolling",)
-	while True :
-		roll = sum(dice())
-		if roll == firstroll:
-			print("you win")
-			return
-		elif roll == 7 :
-			print("you lose")
-			return
+    print("welcome to crap game ")
+    dice_1,dice_2 = dice()
+    firstroll = sum(dice())
+    print(f" The sum of the dice is {dice_1} + {dice_2} = {firstroll}")
+    if firstroll in [7,11]:
+        print("you won")
+    elif firstroll in [2,3,11]:
+        print("you lose")
+    else:
+        goalnumber =firstroll
+        print(f"your goal number is {goalnumber}")
+        while True:
+            roll = sum(dice())
+            print(f" The sum of the dice is {dice_1} + {dice_2} = {roll}")
+            if roll == firstroll:
+                print("you win")
+                break
+            elif roll == 7 :
+                print("you lose")
+                break
 
+if __name__ == '__main__':
 
-play_dice()
+    play_dice()
+
